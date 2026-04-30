@@ -1,31 +1,22 @@
-""" import requests
-
-def getWeather(city):
-    response = requests.get(f"http://localhost:3000/weather/{city}")
-    if response.status_code != 200:
-        print("Error fetching data!")
-        return None
-    
-    data = response.json()
-Weather_Data = getWeather("Curitiba")
-print(Weather_Data) """
-
-
 import requests
 
-def getPoke(poke):
-    response = requests.get(f"https://pokeapi.co/api/v2/pokemon/{poke.lower()}")
+def getWeather(lat, lon, APIkey):
+    response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={APIkey}")
     if response.status_code != 200:
         print("Error fetching data!")
         return None
     
     data = response.json()
+    print(data)
     return {
-        "name": data["name"],
-        "height": data["height"],
-        "weight": data["weight"],
-        "types": [t["type"]["name"] for t in data["types"]]
+        "main_temp": data["main[temp]"],
+        "max_temp": data["main.temp_max"],
+        "min_temp": data["main.temp_min"],
+        "wind_speed": data["wind.speed"],
+        "rain": data["rain"]
     }
 
-pokemon = getPoke("Bulbasaur")
-print(pokemon)
+Weather_Data = getWeather(40, 70, "077be3b7d8efd9180e8de0642a4ce332")
+print(Weather_Data)
+
+
