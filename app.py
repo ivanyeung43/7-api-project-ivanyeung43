@@ -1,3 +1,9 @@
+class Cal:
+    def kel_to_far(self, x):
+        return (x - 273.15) * (9/5) + 32
+    def kel_to_cel(self, x):
+        return x - 273.15
+
 import requests
 
 def getWeather(lat, lon, APIkey):
@@ -7,16 +13,18 @@ def getWeather(lat, lon, APIkey):
         return None
     
     data = response.json()
-    print(data)
     return {
-        "main_temp": data["main[temp]"],
-        "max_temp": data["main.temp_max"],
-        "min_temp": data["main.temp_min"],
-        "wind_speed": data["wind.speed"],
-        "rain": data["rain"]
+        "main_temp": [data["main"]["temp"]],
+        "max_temp": [data["main"]["temp_max"]],
+        "min_temp": [data["main"]["temp_min"]],
+        "wind_speed": [data["wind"]["speed"]],
     }
 
-Weather_Data = getWeather(40, 70, "077be3b7d8efd9180e8de0642a4ce332")
-print(Weather_Data)
+weather = getWeather(40, 74, "077be3b7d8efd9180e8de0642a4ce332")
+
+def weatherAPP(""):
+        
+
+
 
 
