@@ -19,10 +19,10 @@ def getWeather(lat, lon, APIkey):
         "min_temp": [data["main"]["temp_min"]],
         "wind_speed": [data["wind"]["speed"]],
     }
-
+    print(weatherDICT)
 getWeather(input("Enter latitude"), input("Enter Longitude"), input("Enter APIkey"))
 
-
+"077be3b7d8efd9180e8de0642a4ce332"
     
     
 
