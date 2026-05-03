@@ -11,19 +11,20 @@ def getWeather(lat, lon, APIkey):
     if response.status_code != 200:
         print("Error fetching data!")
         return None
-    
+
     data = response.json()
-    return {
+    weatherDICT = {
         "main_temp": [data["main"]["temp"]],
         "max_temp": [data["main"]["temp_max"]],
         "min_temp": [data["main"]["temp_min"]],
         "wind_speed": [data["wind"]["speed"]],
     }
 
-weather = getWeather(40, 74, "077be3b7d8efd9180e8de0642a4ce332")
+getWeather(input("Enter latitude"), input("Enter Longitude"), input("Enter APIkey"))
 
-def weatherAPP(""):
-        
+
+    
+    
 
 
 
