@@ -19,9 +19,10 @@ def getWeather(lat, lon, APIkey):
         "max_temp": [data["main"]["temp_max"]],
         "min_temp": [data["main"]["temp_min"]],
         "wind_speed": [data["wind"]["speed"]],
-
+        "rain": [data["rain"]["1h"]],
         "clouds": [data["clouds"]["all"]]
     }
+
     return weather
 
 weatherDATA = getWeather(input("Enter latitude"), input("Enter Longitude"), "077be3b7d8efd9180e8de0642a4ce332")
